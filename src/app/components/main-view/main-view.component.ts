@@ -97,6 +97,7 @@ export class MainViewComponent implements OnInit {
     }
 
     browserLink() {
-        window.open('https://browser.ihtsdotools.org/?perspective=full&conceptId1=' + this.concept.conceptId + '&edition=' + this.path, '_blank').focus();
+        // window.open('https://browser.ihtsdotools.org/?perspective=full&conceptId1=' + this.concept.conceptId + '&edition=' + this.path, '_blank').focus();
+        window.open('http://snomed.info/id/' + this.concept.conceptId, '_blank').focus();
     }
 }
