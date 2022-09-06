@@ -1,0 +1,147 @@
+@import '~src/variables.scss';
+
+div.main-view {
+    height: calc(100vh - 9rem);
+
+    div#search {
+        height: calc(100vh - 9rem);
+        background-color: $white;
+        position: relative;
+
+        div.searchbox {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -40%);
+            width: 60rem;
+        }
+
+        h1 {
+            font-family: 'Mulish', 'Helvetica Neue', 'Arial', sans-serif;
+            font-size: 6rem;
+            color: $cerulean;
+        }
+
+        div.input-group {
+            span {
+                font-size: 1.6rem;
+
+                &.search-start {
+                    border-top-left-radius: 50rem;
+                    border-bottom-left-radius: 50rem;
+                    background-color: transparent;
+                    color: $ghost-grey;
+                    border-right: none;
+                }
+
+                &.search-end {
+                    border-top-right-radius: 50rem;
+                    border-bottom-right-radius: 50rem;
+                    cursor: pointer;
+                    color: $white;
+
+                    &:hover {
+                    }
+                }
+            }
+
+            input {
+                border-left: none;
+                border-top-right-radius: 50rem;
+                border-bottom-right-radius: 50rem;
+
+                &:focus, &:active {
+                    outline: none !important;
+                    box-shadow: none !important;
+                    border-color: rgb(206, 212, 218) !important;
+                }
+            }
+        }
+    }
+
+    div#details {
+        height: calc(100vh - 9rem);
+
+        h1 {
+            span {
+                font-size: 2rem;
+                color: $blumine;
+            }
+
+        }
+
+        h2 {
+            span {
+                font-size: 1.6rem;
+                color: $blumine;
+            }
+        }
+
+        h3 {
+            color: $blumine;
+
+            div.phoca-flagbox {
+                height: 0;
+                width: 0;
+
+                span.phoca-flag {
+                    height: 2.2rem;
+                    width: 3.2rem;
+                }
+            }
+        }
+
+        div.section {
+            border-radius: 1rem;
+            overflow: scroll;
+            border: 1px solid $ghost-grey;
+
+            &.bg-cerulean-light {
+                background-color: lighten($cerulean, 30%);
+            }
+
+            p {
+                span.numeral {
+                    color: $slate-grey;
+                }
+            }
+
+            &.attributes {
+                p {
+                    &.odd {
+                        background-color: lighten($cerulean, 35%);
+                    }
+
+                    span {
+                        color: $slate-grey;
+                    }
+                }
+            }
+
+            &.parents, &.children {
+                p.even {
+                    background-color: darken($gallery-white, 5%);
+                }
+            }
+
+        }
+    }
+}
+
+div#loading {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+
+    i {
+        position: absolute;
+        top: 48%;
+        left: 49%;
+        transform: translate(-50%, -50%);
+        color: $white;
+        font-size: 4rem;
+    }
+}
