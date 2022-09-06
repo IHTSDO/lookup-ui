@@ -54,9 +54,14 @@
                         <h2 class="mb-3">Attributes</h2>
                         <ng-container *ngFor="let axiom of concept.classAxioms">
                             <ng-container *ngIf="calculateTotalGroups(axiom.relationships) > 0">
+                                <div *ngFor="let relationship of axiom.relationships | ungroup">
+                                    <p *ngIf="relationship.groupId === 0" class="px-3 py-2 m-0">
+                                        {{relationship.type.pt.term}}<i class="fas fa-arrow-right px-3"></i>{{relationship.concreteValue ? relationship.concreteValue.value : relationship.target.pt.term}}
+                                    </p>
+                                </div>
                                 <div *ngFor="let group of counter(calculateTotalGroups(axiom.relationships)); let i = index" class="section parents bg-white mb-3">
                                     <ng-container *ngFor="let relationship of axiom.relationships | group; let even = even">
-                                        <p *ngIf="relationship.groupId === (i + 1)" class="px-3 py-2 m-0" [class.even]="even">
+                                        <p *ngIf="relationship.groupId !== 0 && relationship.groupId === (i + 1)" class="px-3 py-2 m-0" [class.even]="even">
                                             {{relationship.type.pt.term}}<i class="fas fa-arrow-right px-3"></i>{{relationship.target.pt.term}}
                                         </p>
                                     </ng-container>

@@ -26,6 +26,7 @@ import {EditorModule, TINYMCE_SCRIPT_SRC} from "@tinymce/tinymce-angular";
 import {SnowstormService} from "./services/snowstorm/snowstorm.service";
 import { GroupPipe } from './pipes/group/group.pipe';
 import {DescriptionPipe} from "./pipes/description/description";
+import { UngroupPipe } from './pipes/ungroup/ungroup.pipe';
 
 // SERVICE IMPORTS
 
@@ -42,7 +43,8 @@ import {DescriptionPipe} from "./pipes/description/description";
         TextFilterPipe,
         MainViewComponent,
         DescriptionPipe,
-        GroupPipe
+        GroupPipe,
+        UngroupPipe
     ],
     imports: [
         BrowserModule,

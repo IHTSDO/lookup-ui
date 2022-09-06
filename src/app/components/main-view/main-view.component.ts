@@ -3,15 +3,11 @@ import {SnowstormService} from "../../services/snowstorm/snowstorm.service";
 import {BrowserService} from "../../services/browser/browser.service";
 import {Location} from "@angular/common";
 import {ToastrService} from "ngx-toastr";
-import {DescriptionPipe} from "../../pipes/description/description";
 
 @Component({
     selector: 'app-main-view',
     templateUrl: './main-view.component.html',
-    styleUrls: ['./main-view.component.scss'],
-    providers: [
-        DescriptionPipe
-    ]
+    styleUrls: ['./main-view.component.scss']
 })
 export class MainViewComponent implements OnInit {
 
@@ -19,6 +15,7 @@ export class MainViewComponent implements OnInit {
     textField: string;
     // textField: string = '40541001';
     // textField: string = '62161000052101';
+    // textField: string = '318351000221106';
     path: string;
     concept: any;
     children: any;
@@ -29,8 +26,7 @@ export class MainViewComponent implements OnInit {
     constructor(private snowstorm: SnowstormService,
                 private browser: BrowserService,
                 private location: Location,
-                private toastr: ToastrService,
-                private descriptionsPipe: DescriptionPipe) {
+                private toastr: ToastrService) {
     }
 
     ngOnInit(): void {
@@ -54,6 +50,7 @@ export class MainViewComponent implements OnInit {
                 this.path = multi['items'][0].branch;
                 this.snowstorm.getConcept(id, this.path).subscribe(data => {
                     this.concept = data;
+                    console.log('concept: ', this.concept);
                     this.finishedLoading();
                 });
 
