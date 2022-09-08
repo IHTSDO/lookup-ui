@@ -1,7 +1,7 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.ihtsdo.otf</groupId>
-    <artifactId>lookup</artifactId>
+    <artifactId>lookup-ui</artifactId>
     <version>1.0.1-SNAPSHOT</version>
     <properties>
         <packageName>${project.artifactId}</packageName>
@@ -29,7 +29,7 @@
                             <signPackage>false</signPackage>
                             <dataSet>
                                 <data>
-                                    <src>${basedir}/dist/lookup</src>
+                                    <src>${basedir}/dist/lookup-ui</src>
                                     <type>directory</type>
                                     <mapper>
                                         <type>perm</type>
