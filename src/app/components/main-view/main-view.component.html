@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <div class="row p-5">
-                        <div class="col">
+                        <div class="col mb-5">
                             <h2 class="mb-3">Parents
                                 <span class="ps-3">{{parents.length}}</span>
                             </h2>
@@ -57,7 +57,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col mb-5">
                             <h2 class="mb-3">Descriptions
                                 <span class="ps-3">{{(concept.descriptions | description).length}}</span>
                             </h2>
@@ -70,7 +70,7 @@
                                 </ng-container>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col mb-5">
                             <h2 class="mb-3">Attributes</h2>
                             <ng-container *ngFor="let axiom of concept.classAxioms">
                                 <ng-container *ngIf="calculateTotalGroups(axiom.relationships) > 0">
@@ -94,7 +94,7 @@
                                 </ng-container>
                             </ng-container>
                         </div>
-                        <div class="col">
+                        <div class="col mb-5">
                             <h2 class="mb-3">Children
                                 <span class="ps-3">{{children.length}}</span>
                             </h2>
