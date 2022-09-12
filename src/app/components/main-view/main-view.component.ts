@@ -71,7 +71,7 @@ export class MainViewComponent implements OnInit {
     }
 
     finishedLoading() {
-        if (this.concept && this.children && this.parents) {
+        if ((this.concept && this.children && this.parents) || (this.concept && this.concept.active === false)) {
             this.loading = false;
         }
     }
@@ -92,12 +92,16 @@ export class MainViewComponent implements OnInit {
         return this.config.countryIcons[id];
     }
 
+    findEditionOrExtension(id): string {
+        return this.config.editionExtensionName[id];
+    }
+
     counter(i: number) {
         return new Array(i);
     }
 
     browserLink() {
-        // window.open('https://browser.ihtsdotools.org/?perspective=full&conceptId1=' + this.concept.conceptId + '&edition=' + this.path, '_blank').focus();
-        window.open('http://snomed.info/id/' + this.concept.conceptId, '_blank').focus();
+        window.open('https://browser.ihtsdotools.org/?perspective=full&conceptId1=' + this.concept.conceptId + '&edition=' + this.path, '_blank').focus();
+        // window.open('http://snomed.info/id/' + this.concept.conceptId, '_blank').focus();
     }
 }

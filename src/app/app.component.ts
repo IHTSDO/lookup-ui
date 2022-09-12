@@ -31,20 +31,17 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.titleService.setTitle('SNOMED CT Lookup');
+        this.titleService.setTitle('SNOMED CT Concept Lookup');
         this.environment = window.location.host.split(/[.]/)[0].split(/[-]/)[0];
 
         // this.authoringService.getVersions().subscribe(versions => {
         //     this.versions = versions;
         // });
 
-        // this.authoringService.getUIConfiguration().subscribe(config => {
-        //     this.authoringService.uiConfiguration = config;
-        //
-        //     this.conceptService.httpGetExampleConcepts('138875005').subscribe(data => {
-        //         this.conceptService.setConcepts(data);
-        //     });
-        // });
+        this.authoringService.httpGetUIConfiguration().subscribe(config => {
+            this.authoringService.setUIConfiguration(config);
+            console.log('config: ', config);
+        });
 
         this.branchingService.setBranchPath('MAIN');
         this.assignFavicon();

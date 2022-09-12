@@ -8,26 +8,18 @@ div.main-view {
         background-color: $white;
         position: relative;
 
-        div.searchbox {
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -40%);
-            width: 60rem;
-        }
-    }
-
-    div#base-search, div#top-search {
         h1 {
             font-family: 'Mulish', 'Helvetica Neue', 'Arial', sans-serif;
             font-size: 6rem;
             color: $cerulean;
         }
 
-        h2 {
-            font-family: 'Mulish', 'Helvetica Neue', 'Arial', sans-serif;
-            font-size: 2.5rem;
-            color: $cerulean;
+        div.searchbox {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -40%);
+            width: 60rem;
         }
 
         div.input-group {
@@ -57,6 +49,27 @@ div.main-view {
         }
     }
 
+    div#top-search {
+        h2 {
+            font-family: 'Mulish', 'Helvetica Neue', 'Arial', sans-serif;
+            font-size: 2.5rem;
+            color: $cerulean;
+        }
+
+        div.input-group {
+            input {
+                //border-left: none;
+                border-radius: 50rem;
+
+                &:focus, &:active {
+                    outline: none !important;
+                    box-shadow: none !important;
+                    border-color: rgb(206, 212, 218) !important;
+                }
+            }
+        }
+    }
+
     div#details {
         height: calc(100vh - 9rem);
 
@@ -72,6 +85,7 @@ div.main-view {
 
         h2 {
             font-size: 2rem;
+            line-height: 3rem;
 
             span {
                 font-size: 1.6rem;
@@ -90,6 +104,10 @@ div.main-view {
                     height: 2.2rem;
                     width: 3.2rem;
                 }
+            }
+
+            &.inactive {
+                color: $mandy;
             }
         }
 

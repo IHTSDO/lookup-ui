@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UIConfiguration } from '../../models/uiConfiguration';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import { Versions } from '../../models/versions';
 
 @Injectable({
@@ -10,13 +10,21 @@ import { Versions } from '../../models/versions';
 export class AuthoringService {
 
     public environmentEndpoint: string;
-    uiConfiguration: UIConfiguration;
+    private uiConfiguration = new Subject<any>();
 
     constructor(private http: HttpClient) {
         this.environmentEndpoint = window.location.origin + '/';
     }
 
-    getUIConfiguration(): Observable<UIConfiguration> {
+    setUIConfiguration(config) {
+        this.uiConfiguration.next(config);
+    }
+
+    getUIConfiguration() {
+        return this.uiConfiguration.asObservable();
+    }
+
+    httpGetUIConfiguration(): Observable<UIConfiguration> {
         return this.http.get<UIConfiguration>('/authoring-services/ui-configuration');
     }
 
