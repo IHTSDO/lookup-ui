@@ -17,18 +17,18 @@ export class SnowstormService {
     }
 
     getMultiSearchPath(id) {
-        return this.http.get(this.configuration.endpoints.browserEndpoint + 'snowstorm/snomed-ct/multisearch/concepts?conceptIds=' + id);
+        return this.http.get('/snowstorm/snomed-ct/multisearch/concepts?conceptIds=' + id);
     }
 
     getConcept(id, path) {
-        return this.http.get(this.configuration.endpoints.browserEndpoint + 'snowstorm/snomed-ct/browser/' + path + '/concepts/' + id);
+        return this.http.get('/snowstorm/snomed-ct/browser/' + path + '/concepts/' + id);
     }
 
     getChildren(id, path) {
-        return this.http.get(this.configuration.endpoints.browserEndpoint + 'snowstorm/snomed-ct/browser/' + path + '/concepts/' + id + '/children');
+        return this.http.get('/snowstorm/snomed-ct/browser/' + path + '/concepts/' + id + '/children');
     }
 
     getParents(id, path) {
-        return this.http.get(this.configuration.endpoints.browserEndpoint + 'snowstorm/snomed-ct/browser/' + path + '/concepts/' + id + '/parents');
+        return this.http.get('/snowstorm/snomed-ct/browser/' + path + '/concepts/' + id + '/parents');
     }
 }

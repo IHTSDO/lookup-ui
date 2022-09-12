@@ -38,10 +38,10 @@ export class AppComponent implements OnInit {
         //     this.versions = versions;
         // });
 
-        this.authoringService.httpGetUIConfiguration().subscribe(config => {
-            this.authoringService.setUIConfiguration(config);
-            console.log('config: ', config);
-        });
+        // this.authoringService.httpGetUIConfiguration().subscribe(config => {
+        //     this.authoringService.setUIConfiguration(config);
+        //     console.log('config: ', config);
+        // });
 
         this.branchingService.setBranchPath('MAIN');
         this.assignFavicon();
