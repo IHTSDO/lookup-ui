@@ -25,7 +25,7 @@ export class AuthoringService {
     }
 
     httpGetUIConfiguration(): Observable<UIConfiguration> {
-        return this.http.get<UIConfiguration>('/authoring-services/ui-configuration');
+        return this.http.get<UIConfiguration>('https://dev-browser.ihtsdotools.org/authoring-services/ui-configuration');
     }
 
     getVersions(): Observable<Versions> {
