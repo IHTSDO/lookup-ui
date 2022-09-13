@@ -7,7 +7,7 @@
                         <h1 class="text-center p-5">SNOMED CT</h1>
                         <div class="input-group mb-3 rounded-pill">
                             <span class="input-group-text search-start"><i class="fas fa-search"></i></span>
-                            <input type="text" class="form-control" placeholder="I like concept IDs..." [(ngModel)]="textField">
+                            <input type="text" class="form-control" placeholder="Enter a concept ID..." [(ngModel)]="textField">
                         </div>
                         <div class="text-center">
                             <button class="btn m-4 px-5 py-3 rounded-pill bg-fruit-salad bg-fruit-salad-hover" [routerLink]="textField" (click)="searchConcept(textField)">Search</button>
@@ -76,7 +76,7 @@
                                     <div *ngFor="let group of counter(calculateTotalGroups(axiom.relationships)); let i = index" class="section parents bg-white mb-3">
                                         <ng-container *ngFor="let relationship of axiom.relationships | group; let even = even">
                                             <p *ngIf="relationship.groupId !== 0 && relationship.groupId === (i + 1)" class="px-3 py-2 m-0" [class.even]="even">
-                                                {{relationship.type?.pt.term}}<i class="fas fa-arrow-right px-3"></i>{{relationship.target?.pt.term}}
+                                                {{relationship.type?.pt.term}}<i class="fas fa-arrow-right px-3"></i>{{relationship.concreteValue ? relationship.concreteValue.value : relationship.target?.pt.term}}
                                             </p>
                                         </ng-container>
                                     </div>
@@ -87,7 +87,7 @@
                             <h2 class="mb-3">Parents
                                 <span class="ps-3">{{parents?.length}}</span>
                             </h2>
-                            <div *ngIf="parents" class="section parents bg-white">
+                            <div *ngIf="parents?.length" class="section parents bg-white">
                                 <p *ngFor="let parent of parents; let i = index; let even = even"  [class.even]="even" class="px-3 py-2 m-0">
                                     {{parent.fsn.term}}
                                 </p>
@@ -97,7 +97,7 @@
                             <h2 class="mb-3">Direct Children
                                 <span class="ps-3">{{children?.length}}</span>
                             </h2>
-                            <div *ngIf="children" class="section children bg-white">
+                            <div *ngIf="children?.length" class="section children bg-white">
                                 <p *ngFor="let child of children; let i = index; let even = even"  [class.even]="even" class="px-3 py-2 m-0">
                                     {{child.fsn.term}}
                                 </p>

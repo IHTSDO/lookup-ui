@@ -56,13 +56,17 @@ export class MainViewComponent implements OnInit {
 
                 this.snowstorm.getChildren(id, this.path).subscribe(data => {
                     this.children = data;
+                    console.log('children: ', this.children);
                     this.finishedLoading();
-                });
+                },
+                error => {});
 
                 this.snowstorm.getParents(id, this.path).subscribe(data => {
                     this.parents = data;
+                    console.log('parents: ', this.parents);
                     this.finishedLoading();
-                });
+                },
+                error => {});
             } else {
                 this.loading = false;
                 this.toastr.error('Cannot find concept', 'ERROR');
