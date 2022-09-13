@@ -7,7 +7,7 @@
                         <h1 class="text-center p-5">SNOMED CT</h1>
                         <div class="input-group mb-3 rounded-pill">
                             <span class="input-group-text search-start"><i class="fas fa-search"></i></span>
-                            <input type="text" class="form-control" placeholder="Enter a concept ID..." [(ngModel)]="textField">
+                            <input type="text" class="form-control" placeholder="Enter a concept ID..." [(ngModel)]="textField" (keyup.enter)="searchConcept(textField)">
                         </div>
                         <div class="text-center">
                             <button class="btn m-4 px-5 py-3 rounded-pill bg-fruit-salad bg-fruit-salad-hover" [routerLink]="textField" (click)="searchConcept(textField)">Search</button>
@@ -27,7 +27,7 @@
                         </div>
                         <div class="col input-group rounded-pill">
 <!--                            <span class="input-group-text search-start"><i class="fas fa-search"></i></span>-->
-                            <input type="text" class="form-control px-3" placeholder="I like concept ID's..." [(ngModel)]="textField">
+                            <input type="text" class="form-control px-3" placeholder="I like concept ID's..." [(ngModel)]="textField" (keyup.enter)="searchConcept(textField)">
                         </div>
                         <div class="col">
                             <button class="btn ms-4 px-4 py-2 rounded-pill bg-fruit-salad bg-fruit-salad-hover" [routerLink]="textField" (click)="searchConcept(textField)">Search</button>
