@@ -150,25 +150,21 @@ div.main-view {
                 background-color: lighten($cerulean, 30%);
             }
 
-            p {
-                span.numeral {
-                    color: $slate-grey;
-                }
-            }
-
-            &.attributes {
+            &.descriptions {
                 p {
                     &.odd {
                         background-color: lighten($cerulean, 35%);
                     }
 
                     span {
+                        position: absolute;
+                        right: 1rem;
                         color: $slate-grey;
                     }
                 }
             }
 
-            &.parents, &.children {
+            &.parents, &.children, &.attributes {
                 p.even {
                     background-color: darken($gallery-white, 5%);
                 }

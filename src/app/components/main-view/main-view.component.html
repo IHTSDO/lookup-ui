@@ -28,7 +28,7 @@
                         </div>
                         <div class="col input-group rounded-pill position-relative">
 <!--                            <span class="input-group-text search-start"><i class="fas fa-search"></i></span>-->
-                            <input type="text" class="form-control px-3" placeholder="I like concept ID's..." [(ngModel)]="textField" (keyup.enter)="searchConcept(textField)">
+                            <input type="text" class="form-control px-3" placeholder="Enter a concept ID..." [(ngModel)]="textField" (keyup.enter)="searchConcept(textField)">
                             <span *ngIf="textField" class="cross" (click)="textField = ''"><i class="fas fa-times"></i></span>
                         </div>
                         <div class="col">
@@ -55,11 +55,11 @@
                             <h2 class="mb-3">Descriptions
                                 <span class="ps-3">{{(concept.descriptions | description).length}}</span>
                             </h2>
-                            <div class="section attributes bg-cerulean-light">
+                            <div class="section descriptions bg-cerulean-light">
                                 <ng-container *ngFor="let description of concept.descriptions | description; let i = index; let odd = odd">
-                                    <p class="px-3 py-2 m-0" [class.odd]="odd">
+                                    <p class="px-3 py-2 pe-5 m-0 position-relative" [class.odd]="odd">
                                         {{description.term}}
-                                        <span class="float-end">{{description.lang}}</span>
+                                        <span class="lang float-end">{{description.lang}}</span>
                                     </p>
                                 </ng-container>
                             </div>
@@ -75,7 +75,7 @@
                                             {{relationship.type?.pt.term}}<i class="fas fa-arrow-right px-3"></i>{{relationship.concreteValue ? relationship.concreteValue.value : relationship.target?.pt.term}}
                                         </p>
                                     </div>
-                                    <div *ngFor="let group of counter(calculateTotalGroups(axiom.relationships)); let i = index" class="section parents bg-white mb-3">
+                                    <div *ngFor="let group of counter(calculateTotalGroups(axiom.relationships)); let i = index" class="section attributes bg-white mb-3">
                                         <ng-container *ngFor="let relationship of axiom.relationships | group; let even = even">
                                             <p *ngIf="relationship.groupId !== 0 && relationship.groupId === (i + 1)" class="px-3 py-2 m-0" [class.even]="even">
                                                 {{relationship.type?.pt.term}}<i class="fas fa-arrow-right px-3"></i>{{relationship.concreteValue ? relationship.concreteValue.value : relationship.target?.pt.term}}
