@@ -5,9 +5,10 @@
                 <div id="base-search" class="col">
                     <div class="searchbox m-3">
                         <h1 class="text-center p-5">SNOMED CT</h1>
-                        <div class="input-group mb-3 rounded-pill">
+                        <div class="input-group mb-3 rounded-pill position-relative">
                             <span class="input-group-text search-start"><i class="fas fa-search"></i></span>
                             <input type="text" class="form-control" placeholder="Enter a concept ID..." [(ngModel)]="textField" (keyup.enter)="searchConcept(textField)">
+                            <span *ngIf="textField" class="cross" (click)="textField = ''"><i class="fas fa-times"></i></span>
                         </div>
                         <div class="text-center">
                             <button class="btn m-4 px-5 py-3 rounded-pill bg-fruit-salad bg-fruit-salad-hover" [routerLink]="textField" (click)="searchConcept(textField)">Search</button>
@@ -25,9 +26,10 @@
                         <div class="col">
                             <h2 class="text-center mb-0 pe-4 float-end">SNOMED CT</h2>
                         </div>
-                        <div class="col input-group rounded-pill">
+                        <div class="col input-group rounded-pill position-relative">
 <!--                            <span class="input-group-text search-start"><i class="fas fa-search"></i></span>-->
                             <input type="text" class="form-control px-3" placeholder="I like concept ID's..." [(ngModel)]="textField" (keyup.enter)="searchConcept(textField)">
+                            <span *ngIf="textField" class="cross" (click)="textField = ''"><i class="fas fa-times"></i></span>
                         </div>
                         <div class="col">
                             <button class="btn ms-4 px-4 py-2 rounded-pill bg-fruit-salad bg-fruit-salad-hover" [routerLink]="textField" (click)="searchConcept(textField)">Search</button>

@@ -14,8 +14,6 @@ export class MainViewComponent implements OnInit {
     loading: boolean = false;
     textField: string;
     // textField: string = '40541001';
-    // textField: string = '62161000052101';
-    // textField: string = '318351000221106';
     path: string;
     concept: any;
     children: any;
@@ -56,14 +54,14 @@ export class MainViewComponent implements OnInit {
 
                 this.snowstorm.getChildren(id, this.path).subscribe(data => {
                     this.children = data;
-                    console.log('children: ', this.children);
+                    // console.log('children: ', this.children);
                     this.finishedLoading();
                 },
                 error => {});
 
                 this.snowstorm.getParents(id, this.path).subscribe(data => {
                     this.parents = data;
-                    console.log('parents: ', this.parents);
+                    // console.log('parents: ', this.parents);
                     this.finishedLoading();
                 },
                 error => {});

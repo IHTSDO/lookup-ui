@@ -26,6 +26,19 @@ div.main-view {
             span {
                 font-size: 1.6rem;
 
+                &.cross {
+                    position: absolute;
+                    top: 0.25rem;
+                    right: 1.2rem;
+                    color: $slate-grey;
+                    z-index: 1000;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $river-bed;
+                    }
+                }
+
                 &.search-start {
                     border-top-left-radius: 50rem;
                     border-bottom-left-radius: 50rem;
@@ -57,6 +70,24 @@ div.main-view {
         }
 
         div.input-group {
+
+            span {
+                font-size: 1.6rem;
+
+                &.cross {
+                    position: absolute;
+                    top: 0.25rem;
+                    right: 1.8rem;
+                    color: $slate-grey;
+                    z-index: 1000;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $river-bed;
+                    }
+                }
+            }
+
             input {
                 //border-left: none;
                 border-radius: 50rem;
