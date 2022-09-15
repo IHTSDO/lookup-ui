@@ -68,24 +68,22 @@
                             <h2 class="mb-3">Attributes
                                 <span class="ps-3">INFERRED</span>
                             </h2>
-                            <div class="attribute-box p-3">
-                                <ng-container *ngFor="let axiom of concept.classAxioms">
-                                    <ng-container *ngIf="calculateTotalGroups(axiom.relationships) > 0">
-                                        <div *ngFor="let relationship of axiom.relationships | ungroup">
-                                            <p *ngIf="relationship.groupId === 0" class="px-3 py-2 m-0">
+                            <ng-container *ngFor="let axiom of concept.classAxioms">
+                                <div *ngIf="calculateTotalGroups(axiom.relationships) > 0" class="attribute-box p-3">
+                                    <div *ngFor="let relationship of axiom.relationships | ungroup">
+                                        <p *ngIf="relationship.groupId === 0" class="px-3 py-2 m-0">
+                                            {{relationship.type?.pt.term}}<i class="fas fa-arrow-right px-3"></i>{{relationship.concreteValue ? relationship.concreteValue.value : relationship.target?.pt.term}}
+                                        </p>
+                                    </div>
+                                    <div *ngFor="let group of counter(calculateTotalGroups(axiom.relationships)); let i = index; let even = even; let odd = odd; let last = last" class="section attributes" [class.even]="even" [class.odd]="odd" [class.mb-3]="!last">
+                                        <ng-container *ngFor="let relationship of axiom.relationships | group; let first = first; let last = last">
+                                            <p *ngIf="relationship.groupId !== 0 && relationship.groupId === (i + 1)" class="px-3 py-2 m-0" [class.first]="first" [class.last]="last">
                                                 {{relationship.type?.pt.term}}<i class="fas fa-arrow-right px-3"></i>{{relationship.concreteValue ? relationship.concreteValue.value : relationship.target?.pt.term}}
                                             </p>
-                                        </div>
-                                        <div *ngFor="let group of counter(calculateTotalGroups(axiom.relationships)); let i = index; let even = even; let odd = odd; let last = last" class="section attributes" [class.even]="even" [class.odd]="odd" [class.mb-3]="!last">
-                                            <ng-container *ngFor="let relationship of axiom.relationships | group; let first = first; let last = last">
-                                                <p *ngIf="relationship.groupId !== 0 && relationship.groupId === (i + 1)" class="px-3 py-2 m-0" [class.first]="first" [class.last]="last">
-                                                    {{relationship.type?.pt.term}}<i class="fas fa-arrow-right px-3"></i>{{relationship.concreteValue ? relationship.concreteValue.value : relationship.target?.pt.term}}
-                                                </p>
-                                            </ng-container>
-                                        </div>
-                                    </ng-container>
-                                </ng-container>
-                            </div>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </ng-container>
                         </div>
                         <div class="col mb-5">
                             <h2 class="mb-3">Parents
