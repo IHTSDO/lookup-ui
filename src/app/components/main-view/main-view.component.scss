@@ -142,6 +142,12 @@ div.main-view {
             }
         }
 
+        div.attribute-box {
+            border-radius: 1rem;
+            background-color: lighten($sea-buckthorn, 30%);
+            border: 1px solid $ghost-grey;
+        }
+
         div.section {
             border-radius: 1rem;
             border: 1px solid $ghost-grey;
@@ -150,27 +156,69 @@ div.main-view {
                 background-color: lighten($cerulean, 30%);
             }
 
-            &.descriptions {
-                p {
-                    &.odd {
-                        background-color: lighten($cerulean, 35%);
-                    }
+            &.even {
+                background-color: darken($gallery-white, 5%);
+            }
 
-                    span {
-                        position: absolute;
-                        right: 1rem;
-                        color: $slate-grey;
-                    }
+            &.odd {
+                background-color: $gallery-white;
+            }
+
+            &.descriptions {
+
+                p > span {
+                    position: absolute;
+                    right: 1rem;
+                    color: $slate-grey;
+                }
+
+                p.first {
+                    border-top-left-radius: 1rem;
+                    border-top-right-radius: 1rem;
+                }
+
+                p.last {
+                    border-bottom-left-radius: 1rem;
+                    border-bottom-right-radius: 1rem;
+                }
+
+                p.odd {
+                    background-color: lighten($cerulean, 35%);
                 }
             }
 
-            &.parents, &.children, &.attributes {
+            &.attributes {
+
+                p.first {
+                    border-top-left-radius: 1rem;
+                    border-top-right-radius: 1rem;
+                }
+
+                p.last {
+                    border-bottom-left-radius: 1rem;
+                    border-bottom-right-radius: 1rem;
+                }
+            }
+
+            &.parents, &.children {
+
+                p.first {
+                    border-top-left-radius: 1rem;
+                    border-top-right-radius: 1rem;
+                }
+
+                p.last {
+                    border-bottom-left-radius: 1rem;
+                    border-bottom-right-radius: 1rem;
+                }
+
                 p.even {
                     background-color: darken($gallery-white, 5%);
                 }
             }
-
         }
+
+
     }
 }
 
