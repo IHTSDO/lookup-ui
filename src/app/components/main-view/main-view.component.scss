@@ -70,6 +70,8 @@ div.main-view {
         }
 
         div.input-group {
+            width: 40rem;
+            vertical-align: top;
 
             span {
                 font-size: 1.6rem;
@@ -89,7 +91,7 @@ div.main-view {
             }
 
             input {
-                //border-left: none;
+                width: 40rem;
                 border-radius: 50rem;
 
                 &:focus, &:active {
@@ -98,6 +100,10 @@ div.main-view {
                     border-color: rgb(206, 212, 218) !important;
                 }
             }
+        }
+
+        button {
+            vertical-align: top;
         }
     }
 

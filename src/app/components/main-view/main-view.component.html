@@ -22,19 +22,12 @@
         <div class="container-fluid">
             <div class="row border-bottom">
                 <div id="top-search" class="p-5 col-6">
-                    <div class="row">
-                        <div class="col">
-                            <h2 class="text-center mb-0 pe-4 float-end">SNOMED CT</h2>
-                        </div>
-                        <div class="col input-group rounded-pill position-relative">
-<!--                            <span class="input-group-text search-start"><i class="fas fa-search"></i></span>-->
-                            <input type="text" class="form-control px-3" placeholder="Enter a concept ID..." [(ngModel)]="textField" (keyup.enter)="searchConcept(textField)">
-                            <span *ngIf="textField" class="cross" (click)="textField = ''"><i class="fas fa-times"></i></span>
-                        </div>
-                        <div class="col">
-                            <button class="btn ms-4 px-4 py-2 rounded-pill bg-fruit-salad bg-fruit-salad-hover" [routerLink]="textField" (click)="searchConcept(textField)">Search</button>
-                        </div>
+                    <h2 class="d-inline-block text-center mb-0 pe-4">SNOMED CT</h2>
+                    <div class="d-inline-block input-group rounded-pill position-relative">
+                        <input type="text" class="form-control px-3" placeholder="Enter a concept ID..." [(ngModel)]="textField" (keyup.enter)="searchConcept(textField)">
+                        <span *ngIf="textField" class="cross" (click)="textField = ''"><i class="fas fa-times"></i></span>
                     </div>
+                    <button class="d-inline-block btn ms-4 px-4 py-2 rounded-pill bg-fruit-salad bg-fruit-salad-hover" [routerLink]="textField" (click)="searchConcept(textField)">Search</button>
                 </div>
             </div>
             <div class="row">
