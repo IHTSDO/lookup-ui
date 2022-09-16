@@ -3,6 +3,7 @@ import {SnowstormService} from "../../services/snowstorm/snowstorm.service";
 import {BrowserService} from "../../services/browser/browser.service";
 import {Location} from "@angular/common";
 import {ToastrService} from "ngx-toastr";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-main-view',
@@ -24,7 +25,8 @@ export class MainViewComponent implements OnInit {
     constructor(private snowstorm: SnowstormService,
                 private browser: BrowserService,
                 private location: Location,
-                private toastr: ToastrService) {
+                private toastr: ToastrService,
+                private router: Router) {
     }
 
     ngOnInit(): void {
@@ -54,14 +56,14 @@ export class MainViewComponent implements OnInit {
 
                 this.snowstorm.getChildren(id, this.path).subscribe(data => {
                     this.children = data;
-                    // console.log('children: ', this.children);
+                    console.log('children: ', this.children);
                     this.finishedLoading();
                 },
                 error => {});
 
                 this.snowstorm.getParents(id, this.path).subscribe(data => {
                     this.parents = data;
-                    // console.log('parents: ', this.parents);
+                    console.log('parents: ', this.parents);
                     this.finishedLoading();
                 },
                 error => {});
@@ -74,6 +76,9 @@ export class MainViewComponent implements OnInit {
 
     finishedLoading() {
         if ((this.concept && this.children && this.parents) || (this.concept && this.concept.active === false)) {
+            if (this.textField) {
+                this.router.navigateByUrl('/' + this.textField);
+            }
             this.loading = false;
         }
     }

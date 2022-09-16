@@ -12,6 +12,16 @@ export class DescriptionPipe implements PipeTransform {
 
         let response = [];
 
+        items = items.sort(function (a, b) {
+            if (a.lang === 'en') {
+                return 1;
+            }
+
+            if (a.lang !== 'en') {
+                return -1;
+            }
+        });
+
         items.forEach(item => {
             for (let key in item.acceptabilityMap) {
                 let value = item.acceptabilityMap[key];
