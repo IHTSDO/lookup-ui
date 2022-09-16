@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user';
-import { Subject } from 'rxjs';
+import {Subject, Subscription} from 'rxjs';
 import { AuthoringService } from '../authoring/authoring.service';
 
 @Injectable({
@@ -10,8 +10,12 @@ import { AuthoringService } from '../authoring/authoring.service';
 export class AuthenticationService {
 
     private user = new Subject<User>();
+    private configuration: any;
+    private configurationSubscription: Subscription;
 
-    constructor(private http: HttpClient, private authoringService: AuthoringService) {
+    constructor(private http: HttpClient,
+                private authoringService: AuthoringService) {
+        this.configurationSubscription = this.authoringService.getUIConfiguration().subscribe(data => this.configuration = data);
     }
 
     setUser() {
@@ -25,7 +29,6 @@ export class AuthenticationService {
     }
 
     logout() {
-        window.location.href =
-            this.authoringService.uiConfiguration.endpoints.imsEndpoint + 'logout?serviceReferer=' + window.location.href;
+        window.location.href = this.configuration.endpoints.imsEndpoint + 'logout?serviceReferer=' + window.location.href;
     }
 }

@@ -1,12 +1,19 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {AuthoringService} from "../authoring/authoring.service";
+import {Subscription} from "rxjs";
 
 @Injectable({
     providedIn: 'root'
 })
 export class SnowstormService {
 
-    constructor(private http: HttpClient) {
+    private configuration: any;
+    private configurationSubscription: Subscription;
+
+    constructor(private http: HttpClient,
+                private authoringService: AuthoringService) {
+        this.configurationSubscription = this.authoringService.getUIConfiguration().subscribe(data => this.configuration = data);
     }
 
     getMultiSearchPath(id) {

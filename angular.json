@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "lookup": {
+        "lookup-ui": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
@@ -21,7 +21,7 @@
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
                         "baseHref": "/",
-                        "outputPath": "dist/lookup",
+                        "outputPath": "dist/lookup-ui",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -87,10 +87,10 @@
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "lookup:build:production"
+                            "browserTarget": "lookup-ui:build:production"
                         },
                         "development": {
-                            "browserTarget": "lookup:build:development"
+                            "browserTarget": "lookup-ui:build:development"
                         }
                     },
                     "defaultConfiguration": "production"
@@ -98,7 +98,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "lookup:build"
+                        "browserTarget": "lookup-ui:build"
                     }
                 },
                 "lint": {
@@ -113,7 +113,7 @@
             }
         }
     },
-    "defaultProject": "lookup",
+    "defaultProject": "lookup-ui",
     "cli": {
         "schematicCollections": [
             "@angular-eslint/schematics"

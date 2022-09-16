@@ -3,10 +3,16 @@
 div.main-view {
     height: calc(100vh - 9rem);
 
-    div#search {
+    div#base-search {
         height: calc(100vh - 9rem);
         background-color: $white;
         position: relative;
+
+        h1 {
+            font-family: 'Mulish', 'Helvetica Neue', 'Arial', sans-serif;
+            font-size: 6rem;
+            color: $cerulean;
+        }
 
         div.searchbox {
             position: absolute;
@@ -16,15 +22,22 @@ div.main-view {
             width: 60rem;
         }
 
-        h1 {
-            font-family: 'Mulish', 'Helvetica Neue', 'Arial', sans-serif;
-            font-size: 6rem;
-            color: $cerulean;
-        }
-
         div.input-group {
             span {
                 font-size: 1.6rem;
+
+                &.cross {
+                    position: absolute;
+                    top: 0.25rem;
+                    right: 1.2rem;
+                    color: $slate-grey;
+                    z-index: 1000;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $river-bed;
+                    }
+                }
 
                 &.search-start {
                     border-top-left-radius: 50rem;
@@ -32,16 +45,6 @@ div.main-view {
                     background-color: transparent;
                     color: $ghost-grey;
                     border-right: none;
-                }
-
-                &.search-end {
-                    border-top-right-radius: 50rem;
-                    border-bottom-right-radius: 50rem;
-                    cursor: pointer;
-                    color: $white;
-
-                    &:hover {
-                    }
                 }
             }
 
@@ -59,10 +62,57 @@ div.main-view {
         }
     }
 
+    div#top-search {
+        h2 {
+            font-family: 'Mulish', 'Helvetica Neue', 'Arial', sans-serif;
+            font-size: 2.5rem;
+            color: $cerulean;
+        }
+
+        div.input-group {
+            width: 40rem;
+            vertical-align: top;
+
+            span {
+                font-size: 1.6rem;
+
+                &.cross {
+                    position: absolute;
+                    top: 0.25rem;
+                    right: 1.8rem;
+                    color: $slate-grey;
+                    z-index: 1000;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $river-bed;
+                    }
+                }
+            }
+
+            input {
+                width: 40rem;
+                border-radius: 50rem;
+
+                &:focus, &:active {
+                    outline: none !important;
+                    box-shadow: none !important;
+                    border-color: rgb(206, 212, 218) !important;
+                }
+            }
+        }
+
+        button {
+            vertical-align: top;
+        }
+    }
+
     div#details {
         height: calc(100vh - 9rem);
 
         h1 {
+            font-size: 2.4rem;
+
             span {
                 font-size: 2rem;
                 color: $blumine;
@@ -71,6 +121,9 @@ div.main-view {
         }
 
         h2 {
+            font-size: 2rem;
+            line-height: 3rem;
+
             span {
                 font-size: 1.6rem;
                 color: $blumine;
@@ -89,42 +142,89 @@ div.main-view {
                     width: 3.2rem;
                 }
             }
+
+            &.inactive {
+                color: $mandy;
+            }
+        }
+
+        div.attribute-box {
+            border-radius: 1rem;
+            background-color: lighten($sea-buckthorn, 30%);
+            border: 1px solid $ghost-grey;
         }
 
         div.section {
             border-radius: 1rem;
-            overflow: scroll;
             border: 1px solid $ghost-grey;
 
             &.bg-cerulean-light {
                 background-color: lighten($cerulean, 30%);
             }
 
-            p {
-                span.numeral {
+            &.even {
+                background-color: darken($gallery-white, 5%);
+            }
+
+            &.odd {
+                background-color: $gallery-white;
+            }
+
+            &.descriptions {
+
+                p > span {
+                    position: absolute;
+                    right: 1rem;
                     color: $slate-grey;
+                }
+
+                p.first {
+                    border-top-left-radius: 1rem;
+                    border-top-right-radius: 1rem;
+                }
+
+                p.last {
+                    border-bottom-left-radius: 1rem;
+                    border-bottom-right-radius: 1rem;
+                }
+
+                p.odd {
+                    background-color: lighten($cerulean, 35%);
                 }
             }
 
             &.attributes {
-                p {
-                    &.odd {
-                        background-color: lighten($cerulean, 35%);
-                    }
 
-                    span {
-                        color: $slate-grey;
-                    }
+                p.first {
+                    border-top-left-radius: 1rem;
+                    border-top-right-radius: 1rem;
+                }
+
+                p.last {
+                    border-bottom-left-radius: 1rem;
+                    border-bottom-right-radius: 1rem;
                 }
             }
 
             &.parents, &.children {
+
+                p.first {
+                    border-top-left-radius: 1rem;
+                    border-top-right-radius: 1rem;
+                }
+
+                p.last {
+                    border-bottom-left-radius: 1rem;
+                    border-bottom-right-radius: 1rem;
+                }
+
                 p.even {
                     background-color: darken($gallery-white, 5%);
                 }
             }
-
         }
+
+
     }
 }
 

@@ -3,6 +3,7 @@ import {SnowstormService} from "../../services/snowstorm/snowstorm.service";
 import {BrowserService} from "../../services/browser/browser.service";
 import {Location} from "@angular/common";
 import {ToastrService} from "ngx-toastr";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-main-view',
@@ -13,8 +14,6 @@ export class MainViewComponent implements OnInit {
 
     loading: boolean = false;
     textField: string;
-    // textField: string = '40541001';
-    // textField: string = '62161000052101';
     // textField: string = '318351000221106';
     path: string;
     concept: any;
@@ -26,7 +25,8 @@ export class MainViewComponent implements OnInit {
     constructor(private snowstorm: SnowstormService,
                 private browser: BrowserService,
                 private location: Location,
-                private toastr: ToastrService) {
+                private toastr: ToastrService,
+                private router: Router) {
     }
 
     ngOnInit(): void {
@@ -56,13 +56,17 @@ export class MainViewComponent implements OnInit {
 
                 this.snowstorm.getChildren(id, this.path).subscribe(data => {
                     this.children = data;
+                    console.log('children: ', this.children);
                     this.finishedLoading();
-                });
+                },
+                error => {});
 
                 this.snowstorm.getParents(id, this.path).subscribe(data => {
                     this.parents = data;
+                    console.log('parents: ', this.parents);
                     this.finishedLoading();
-                });
+                },
+                error => {});
             } else {
                 this.loading = false;
                 this.toastr.error('Cannot find concept', 'ERROR');
@@ -71,7 +75,10 @@ export class MainViewComponent implements OnInit {
     }
 
     finishedLoading() {
-        if (this.concept && this.children && this.parents) {
+        if ((this.concept && this.children && this.parents) || (this.concept && this.concept.active === false)) {
+            if (this.textField) {
+                this.router.navigateByUrl('/' + this.textField);
+            }
             this.loading = false;
         }
     }
@@ -92,12 +99,16 @@ export class MainViewComponent implements OnInit {
         return this.config.countryIcons[id];
     }
 
+    findEditionOrExtension(id): string {
+        return this.config.editionExtensionName[id];
+    }
+
     counter(i: number) {
         return new Array(i);
     }
 
     browserLink() {
-        // window.open('https://browser.ihtsdotools.org/?perspective=full&conceptId1=' + this.concept.conceptId + '&edition=' + this.path, '_blank').focus();
-        window.open('http://snomed.info/id/' + this.concept.conceptId, '_blank').focus();
+        window.open('https://browser.ihtsdotools.org/?perspective=full&conceptId1=' + this.concept.conceptId + '&edition=' + this.path, '_blank').focus();
+        // window.open('http://snomed.info/id/' + this.concept.conceptId, '_blank').focus();
     }
 }
