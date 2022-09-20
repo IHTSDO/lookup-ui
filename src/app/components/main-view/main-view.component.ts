@@ -108,7 +108,11 @@ export class MainViewComponent implements OnInit {
     }
 
     browserLink() {
-        window.open('https://browser.ihtsdotools.org/?perspective=full&conceptId1=' + this.concept.conceptId + '&edition=' + this.path, '_blank').focus();
-        // window.open('http://snomed.info/id/' + this.concept.conceptId, '_blank').focus();
+        // This is a hack, and needs to be fixed in Snowstorm - pduff
+        if (this.path.includes('SNOMEDCT-AR') || this.path.includes('SNOMEDCT-UY')) {
+            window.open('https://browser.ihtsdotools.org/?perspective=full&conceptId1=' + this.concept.conceptId + '&edition=' + this.path + '&languages=es,en', '_blank').focus();
+        } else {
+            window.open('https://browser.ihtsdotools.org/?perspective=full&conceptId1=' + this.concept.conceptId + '&edition=' + this.path, '_blank').focus();
+        }
     }
 }

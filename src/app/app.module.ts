@@ -27,6 +27,7 @@ import {SnowstormService} from "./services/snowstorm/snowstorm.service";
 import { GroupPipe } from './pipes/group/group.pipe';
 import {DescriptionPipe} from "./pipes/description/description";
 import { UngroupPipe } from './pipes/ungroup/ungroup.pipe';
+import { ActivePipe } from './pipes/active/active.pipe';
 
 // SERVICE IMPORTS
 
@@ -44,7 +45,8 @@ import { UngroupPipe } from './pipes/ungroup/ungroup.pipe';
         MainViewComponent,
         DescriptionPipe,
         GroupPipe,
-        UngroupPipe
+        UngroupPipe,
+        ActivePipe
     ],
     imports: [
         BrowserModule,
