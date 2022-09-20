@@ -61,7 +61,8 @@
                             <h2 class="mb-3">Attributes
                                 <span class="ps-3">INFERRED</span>
                             </h2>
-                            <div *ngIf="(concept.relationships | active).length > 0" class="attribute-box p-3">
+<!--                            <p>{{(concept.relationships | active).length}}</p>-->
+                            <div *ngIf="(concept.relationships | active).length > 1" class="attribute-box p-3">
                                 <div *ngFor="let relationship of concept.relationships | active | ungroup">
                                     <p *ngIf="relationship.groupId === 0" class="px-3 py-2 m-0">
                                         {{relationship.type?.pt.term}}<i class="fas fa-arrow-right px-3"></i>{{relationship.concreteValue ? relationship.concreteValue.value : relationship.target?.pt.term}}
