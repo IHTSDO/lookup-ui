@@ -1,19 +1,22 @@
-# Lookup
+# Lookup by SNOMED International
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
+![Last Commit](https://img.shields.io/github/last-commit/ihtsdo/lookup-ui/develop)
+![Issues](https://img.shields.io/github/issues/ihtsdo/lookup-ui)
+![Contributors](https://img.shields.io/github/contributors/ihtsdo/lookup-ui)
+
+![license](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
+![GitHub commit activity the past year](https://img.shields.io/github/commit-activity/m/ihtsdo/lookup-ui/develop)
+![Angular Version](https://img.shields.io/github/package-json/dependency-version/ihtsdo/lookup-ui/@angular/core)
+![Typescript Version](https://img.shields.io/github/package-json/dependency-version/ihtsdo/lookup-ui/dev/typescript)
+
+The Lookup UI is a simple project designed to allow users to look up a specific concept ID and find out information about it.
+
+---
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
