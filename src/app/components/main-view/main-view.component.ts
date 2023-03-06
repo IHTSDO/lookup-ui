@@ -69,7 +69,7 @@ export class MainViewComponent implements OnInit {
                 error => {});
             } else {
                 this.loading = false;
-                this.toastr.error('Cannot find concept', 'ERROR');
+                this.toastr.error('Cannot find concept. The concept may be in an extension or edition not hosted on <a href="https://browser.ihtsdotools.org/">this server</a>.', 'ERROR', {enableHtml: true});
             }
         });
     }

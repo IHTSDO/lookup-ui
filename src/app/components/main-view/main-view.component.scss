@@ -20,6 +20,16 @@ div.main-view {
             left: 50%;
             transform: translate(-50%, -40%);
             width: 60rem;
+
+            div.phoca-flagbox {
+                max-height: 2rem;
+                max-width: 2rem;
+
+                img {
+                    max-height: 2rem;
+                    max-width: 2rem;
+                }
+            }
         }
 
         div.input-group {
