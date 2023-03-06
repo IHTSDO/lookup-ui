@@ -24,6 +24,11 @@ div.main-view {
             div.phoca-flagbox {
                 max-height: 2rem;
                 max-width: 2rem;
+
+                img {
+                    max-height: 2rem;
+                    max-width: 2rem;
+                }
             }
         }
 
