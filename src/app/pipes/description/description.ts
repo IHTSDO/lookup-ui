@@ -20,6 +20,8 @@ export class DescriptionPipe implements PipeTransform {
             if (a.lang !== 'en') {
                 return -1;
             }
+
+            return null;
         });
 
         items.forEach(item => {
@@ -46,6 +48,8 @@ export class DescriptionPipe implements PipeTransform {
             if (a['type'] < b['type']) {
                 return -1;
             }
+
+            return null;
         });
 
         response = response.filter(item => item.active);

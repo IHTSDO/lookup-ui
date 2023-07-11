@@ -22,7 +22,6 @@ import {ModalService} from './services/modal/modal.service';
 import {ModalComponent} from './components/modal/modal.component';
 import {TextFilterPipe} from './pipes/text-filter/text-filter.pipe';
 import { MainViewComponent } from './components/main-view/main-view.component';
-import {EditorModule, TINYMCE_SCRIPT_SRC} from "@tinymce/tinymce-angular";
 import {SnowstormService} from "./services/snowstorm/snowstorm.service";
 import { GroupPipe } from './pipes/group/group.pipe';
 import {DescriptionPipe} from "./pipes/description/description";
@@ -55,8 +54,7 @@ import { ActivePipe } from './pipes/active/active.pipe';
         BrowserAnimationsModule,
         NgbTypeaheadModule,
         AppRoutingModule,
-        ToastrModule.forRoot(),
-        EditorModule
+        ToastrModule.forRoot()
     ],
     providers: [
         AuthenticationService,
@@ -69,10 +67,6 @@ import { ActivePipe } from './pipes/active/active.pipe';
             provide: HTTP_INTERCEPTORS,
             useClass: HeaderInterceptor,
             multi: true
-        },
-        {
-            provide: TINYMCE_SCRIPT_SRC,
-            useValue: 'tinymce/tinymce.min.js'
         }
     ],
     bootstrap: [AppComponent]

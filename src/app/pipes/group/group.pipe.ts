@@ -20,6 +20,8 @@ export class GroupPipe implements PipeTransform {
             if (a['groupId'] < b['groupId']) {
                 return -1;
             }
+
+            return null;
         });
 
         return items;
