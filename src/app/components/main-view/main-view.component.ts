@@ -50,20 +50,17 @@ export class MainViewComponent implements OnInit {
                 this.path = multi['items'][0].branch;
                 this.snowstorm.getConcept(id, this.path).subscribe(data => {
                     this.concept = data;
-                    console.log('concept: ', this.concept);
                     this.finishedLoading();
                 });
 
                 this.snowstorm.getChildren(id, this.path).subscribe(data => {
                     this.children = data;
-                    console.log('children: ', this.children);
                     this.finishedLoading();
                 },
                 error => {});
 
                 this.snowstorm.getParents(id, this.path).subscribe(data => {
                     this.parents = data;
-                    console.log('parents: ', this.parents);
                     this.finishedLoading();
                 },
                 error => {});
@@ -96,11 +93,11 @@ export class MainViewComponent implements OnInit {
     }
 
     findFlag(id): string {
-        return this.config.countryIcons[id];
+        return this.config?.countryIcons[id];
     }
 
     findEditionOrExtension(id): string {
-        return this.config.editionExtensionName[id];
+        return this.config?.editionExtensionName[id];
     }
 
     counter(i: number) {
