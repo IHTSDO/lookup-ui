@@ -1,14 +1,20 @@
 import {Component, OnInit} from '@angular/core';
 import {SnowstormService} from "../../services/snowstorm/snowstorm.service";
 import {BrowserService} from "../../services/browser/browser.service";
-import {Location} from "@angular/common";
+import { Location, NgIf, NgFor } from "@angular/common";
 import {ToastrService} from "ngx-toastr";
-import {Router} from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
+import { FormsModule } from '@angular/forms';
+import { DescriptionPipe } from '../../pipes/description/description';
+import { GroupPipe } from '../../pipes/group/group.pipe';
+import { UngroupPipe } from '../../pipes/ungroup/ungroup.pipe';
+import { ActivePipe } from '../../pipes/active/active.pipe';
 
 @Component({
     selector: 'app-main-view',
     templateUrl: './main-view.component.html',
-    styleUrls: ['./main-view.component.scss']
+    styleUrls: ['./main-view.component.scss'],
+    imports: [NgIf, FormsModule, RouterLink, NgFor, DescriptionPipe, GroupPipe, UngroupPipe, ActivePipe]
 })
 export class MainViewComponent implements OnInit {
 
