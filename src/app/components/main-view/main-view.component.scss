@@ -1,4 +1,5 @@
-@import 'src/variables.scss';
+@use '../../../variables' as *;
+@use 'sass:color';
 
 div.main-view {
     height: calc(100vh - 9rem);
@@ -160,7 +161,7 @@ div.main-view {
 
         div.attribute-box {
             border-radius: 1rem;
-            background-color: lighten($sea-buckthorn, 30%);
+            background-color: color.adjust($sea-buckthorn, $lightness: 30%);
             border: 1px solid $ghost-grey;
         }
 
@@ -169,11 +170,11 @@ div.main-view {
             border: 1px solid $ghost-grey;
 
             &.bg-cerulean-light {
-                background-color: lighten($cerulean, 30%);
+                background-color: color.adjust($cerulean, $lightness: 30%);
             }
 
             &.even {
-                background-color: darken($gallery-white, 5%);
+                background-color: color.adjust($gallery-white, $lightness: -5%);
             }
 
             &.odd {
@@ -199,7 +200,7 @@ div.main-view {
                 }
 
                 p.odd {
-                    background-color: lighten($cerulean, 35%);
+                    background-color: color.adjust($cerulean, $lightness: 35%);
                 }
             }
 
@@ -229,7 +230,7 @@ div.main-view {
                 }
 
                 p.even {
-                    background-color: darken($gallery-white, 5%);
+                   background-color: color.adjust($gallery-white, $lightness: -5%);
                 }
             }
         }

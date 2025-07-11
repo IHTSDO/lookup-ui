@@ -15,11 +15,12 @@
             "prefix": "app",
             "architect": {
                 "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
+                    "builder": "@angular/build:application",
                     "options": {
-                        "outputPath": "dist/lookup-ui",
+                        "outputPath": {
+                          "base": "dist/lookup-ui"
+                        },
                         "index": "src/index.html",
-                        "main": "src/main.ts",
                         "tsConfig": "tsconfig.app.json",
                         "inlineStyleLanguage": "scss",
                         "assets": [
@@ -41,7 +42,13 @@
                             "./node_modules/jquery/dist/jquery.min.js",
                             "./node_modules/@popperjs/core/dist/umd/popper.min.js",
                             "./node_modules/bootstrap/dist/js/bootstrap.min.js"
-                        ]
+                        ],
+                        "browser": "src/main.ts",
+                        "stylePreprocessorOptions": {
+                          "includePaths": [
+                            "."
+                          ]
+                        }
                     },
                     "configurations": {
                         "production": {
@@ -60,9 +67,7 @@
                             "outputHashing": "all"
                         },
                         "development": {
-                            "buildOptimizer": false,
-                            "optimization": false,
-                            "vendorChunk": true,
+                          "optimization": false,
                             "extractLicenses": false,
                             "sourceMap": true,
                             "namedChunks": true
@@ -71,24 +76,24 @@
                     "defaultConfiguration": "production"
                 },
                 "serve": {
-                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "builder": "@angular/build:dev-server",
                     "options": {
                         "liveReload": false
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "lookup-ui:build:production"
+                          "buildTarget": "lookup-ui:build:production"
                         },
                         "development": {
-                            "browserTarget": "lookup-ui:build:development"
+                          "buildTarget": "lookup-ui:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
                 },
                 "extract-i18n": {
-                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "builder": "@angular/build:extract-i18n",
                     "options": {
-                        "browserTarget": "lookup-ui:build"
+                      "buildTarget": "lookup-ui:build"
                     }
                 }
             }

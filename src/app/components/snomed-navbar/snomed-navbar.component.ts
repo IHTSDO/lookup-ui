@@ -4,11 +4,13 @@ import { User } from '../../models/user';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
 import {PathingService} from '../../services/pathing/pathing.service';
 import {Location} from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-snomed-navbar',
     templateUrl: './snomed-navbar.component.html',
-    styleUrls: ['./snomed-navbar.component.scss']
+    styleUrls: ['./snomed-navbar.component.scss'],
+    imports: [RouterLink]
 })
 export class SnomedNavbarComponent implements OnInit {
 

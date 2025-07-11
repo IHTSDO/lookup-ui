@@ -1,8 +1,6 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
-@Pipe({
-    name: 'ungroup'
-})
+@Pipe({ name: 'ungroup' })
 export class UngroupPipe implements PipeTransform {
 
     transform(items: any[]) {

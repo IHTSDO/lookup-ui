@@ -5,11 +5,15 @@ import { BranchingService } from './services/branching/branching.service';
 import { ToastrService } from 'ngx-toastr';
 import {StatusPageService} from './services/statusPage/status-page.service';
 import {ModalService} from './services/modal/modal.service';
+import { SnomedNavbarComponent } from './components/snomed-navbar/snomed-navbar.component';
+import { MainViewComponent } from './components/main-view/main-view.component';
+import { SnomedFooterComponent } from './components/snomed-footer/snomed-footer.component';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    styleUrls: ['./app.component.scss'],
+    imports: [SnomedNavbarComponent, MainViewComponent, SnomedFooterComponent]
 })
 export class AppComponent implements OnInit {
 

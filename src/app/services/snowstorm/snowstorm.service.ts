@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {AuthoringService} from "../authoring/authoring.service";
 import {Subscription} from "rxjs";
 
