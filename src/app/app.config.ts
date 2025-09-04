@@ -1,4 +1,4 @@
-import { ApplicationConfig, importProvidersFrom } from "@angular/core";
+import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgbTypeaheadModule } from "@ng-bootstrap/ng-bootstrap";
@@ -17,6 +17,7 @@ import { routes } from "./app.routes";
 
 export const appConfig: ApplicationConfig = {
      providers: [
+        provideZoneChangeDetection({eventCoalescing: true}),
         importProvidersFrom(BrowserModule, FormsModule, NgbTypeaheadModule),
         AuthenticationService,
         AuthoringService,

@@ -44,6 +44,9 @@
                             "./node_modules/bootstrap/dist/js/bootstrap.min.js"
                         ],
                         "browser": "src/main.ts",
+                        "polyfills": [
+                            "zone.js"
+                        ],
                         "stylePreprocessorOptions": {
                           "includePaths": [
                             "."
