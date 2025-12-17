@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SnowstormService} from "../../services/snowstorm/snowstorm.service";
 import {BrowserService} from "../../services/browser/browser.service";
-import { Location, NgIf, NgFor } from "@angular/common";
+import { CommonModule, Location } from "@angular/common";
 import {ToastrService} from "ngx-toastr";
 import { Router, RouterLink } from "@angular/router";
 import { FormsModule } from '@angular/forms';
@@ -14,7 +14,7 @@ import { ActivePipe } from '../../pipes/active/active.pipe';
     selector: 'app-main-view',
     templateUrl: './main-view.component.html',
     styleUrls: ['./main-view.component.scss'],
-    imports: [NgIf, FormsModule, RouterLink, NgFor, DescriptionPipe, GroupPipe, UngroupPipe, ActivePipe]
+    imports: [CommonModule, FormsModule, RouterLink, DescriptionPipe, GroupPipe, UngroupPipe, ActivePipe]
 })
 export class MainViewComponent implements OnInit {
 
